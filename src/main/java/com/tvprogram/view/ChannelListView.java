@@ -37,9 +37,11 @@ public class ChannelListView extends JFrame {
                 if (selectedChannel != null) {
                     Program currentProgram = getCurrentProgram(selectedChannel.getPrograms());
                     if (currentProgram != null) {
-                        programLabel.setText("<html><h2>" + selectedChannel.getName() + "</h2><br>" + currentProgram.getName() + "</html>");
+                        programLabel.setText("<html><h2 style='margin-left: 10px;'>" + selectedChannel.getName()
+                                + "</h2><br><h4 style='margin-left: 10px;'>" + currentProgram.getName() + "</h4></html>");
                     } else {
-                        programLabel.setText("<html><h2>" + selectedChannel.getName() + "</h2><br>Brak aktualnego programu</html>");
+                        programLabel.setText("<html><h2 style='margin-left: 10px;'>" + selectedChannel.getName()
+                                + "</h2><br><h4 style='margin-left: 10px;'>Brak aktualnego programu</h4></html>");
                     }
                     programLabel.repaint();
                 }
@@ -52,7 +54,7 @@ public class ChannelListView extends JFrame {
         add(channelListScrollPane, BorderLayout.WEST);
         add(programScrollPane, BorderLayout.CENTER);
 
-        pack();
+        setSize(800, 600);
         setLocationRelativeTo(null);
     }
 
