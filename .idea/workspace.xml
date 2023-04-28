@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c103fadf-de7e-45f8-b549-483ff4287ca4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/META-INF/manifest.mf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tvprogram/view/ChannelListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tvprogram/view/ChannelListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/channels.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/channels.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/events.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tvprogram/utils/JsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tvprogram/utils/JsonParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +36,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tvprogram.Main" />
@@ -67,7 +72,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682662794954</updated>
-      <workItem from="1682662797937" duration="15472000" />
+      <workItem from="1682662797937" duration="21119000" />
+      <workItem from="1682693300756" duration="1019000" />
     </task>
     <servers />
   </component>

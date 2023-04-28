@@ -5,9 +5,9 @@ import com.tvprogram.model.Program;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,11 +15,16 @@ import java.util.List;
 
 public class JsonParser {
 
-    public static List<Channel> parseChannels(String channelsJsonPath) {
+    public static List<Channel> parseChannels(String fileName) {
         List<Channel> channels = new ArrayList<>();
 
         try {
-            String content = new String(Files.readAllBytes(Paths.get(channelsJsonPath)));
+            InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream(fileName);
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: " + fileName);
+            }
+            byte[] jsonData = inputStream.readAllBytes();
+            String content = new String(jsonData);
             JSONObject json = new JSONObject(content);
             JSONArray data = json.getJSONArray("data");
 
@@ -45,9 +50,14 @@ public class JsonParser {
         return channels;
     }
 
-    public static void parseEvents(String eventsJsonPath, List<Channel> channels) {
+    public static void parseEvents(String fileName, List<Channel> channels) {
         try {
-            String content = new String(Files.readAllBytes(Paths.get(eventsJsonPath)));
+            InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream(fileName);
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: " + fileName);
+            }
+            byte[] jsonData = inputStream.readAllBytes();
+            String content = new String(jsonData);
             JSONObject json = new JSONObject(content);
             JSONArray data = json.getJSONArray("data");
             DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
