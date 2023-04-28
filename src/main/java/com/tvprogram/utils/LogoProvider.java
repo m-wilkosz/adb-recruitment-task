@@ -9,6 +9,10 @@ import java.net.URL;
 public class LogoProvider {
 
     public static ImageIcon getLogo(String logoUrl, int width, int height) {
+        if (logoUrl == null || logoUrl.isEmpty()) {
+            return null;
+        }
+
         try {
             URL url = new URL(logoUrl);
             Image image = ImageIO.read(url).getScaledInstance(width, height, Image.SCALE_SMOOTH);
