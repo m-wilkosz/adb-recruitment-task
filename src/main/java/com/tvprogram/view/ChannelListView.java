@@ -5,6 +5,7 @@ import com.tvprogram.model.Program;
 import com.tvprogram.utils.LogoProvider;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -56,6 +57,9 @@ public class ChannelListView extends JFrame {
 
         setSize(800, 600);
         setLocationRelativeTo(null);
+
+        Timer timer = new Timer(60 * 1000, e -> updateProgram());
+        timer.start();
     }
 
     private class ChannelListRenderer extends JLabel implements ListCellRenderer<Channel> {
@@ -92,5 +96,20 @@ public class ChannelListView extends JFrame {
                 .filter(p -> p.getStartTime().isBefore(now) && p.getEndTime().isAfter(now))
                 .findFirst()
                 .orElse(null);
+    }
+
+    private void updateProgram() {
+        Channel selectedChannel = channelList.getSelectedValue();
+        if (selectedChannel != null) {
+            Program currentProgram = getCurrentProgram(selectedChannel.getPrograms());
+            if (currentProgram != null) {
+                programLabel.setText("<html><h2 style='margin-left: 10px;'>" + selectedChannel.getName()
+                        + "</h2><br><h4 style='margin-left: 10px;'>" + currentProgram.getName() + "</h4></html>");
+            } else {
+                programLabel.setText("<html><h2 style='margin-left: 10px;'>" + selectedChannel.getName()
+                        + "</h2><br><h4 style='margin-left: 10px;'>Brak aktualnego programu</h4></html>");
+            }
+            programLabel.repaint();
+        }
     }
 }
