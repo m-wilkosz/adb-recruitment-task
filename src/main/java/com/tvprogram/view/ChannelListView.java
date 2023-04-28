@@ -14,36 +14,74 @@ public class ChannelListView extends JFrame {
     private static final int LOGO_WIDTH = 100;
     private static final int LOGO_HEIGHT = 50;
 
+    private final JList<Channel> channelList;
+    private final JLabel programLabel;
+
     public ChannelListView(List<Channel> channels) {
-        setTitle("Aktualne programy TV");
+        setTitle("Aktualny program TV");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridBagLayout());
+        setLayout(new BorderLayout());
 
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.insets = new Insets(10, 10, 10, 10);
+        DefaultListModel<Channel> listModel = new DefaultListModel<>();
+        channels.forEach(listModel::addElement);
 
-        for (int i = 0; i < channels.size(); i++) {
-            Channel channel = channels.get(i);
-            constraints.gridy = i;
+        channelList = new JList<>(listModel);
+        channelList.setCellRenderer(new ChannelListRenderer());
 
-            constraints.gridx = 0;
-            add(new JLabel(channel.getName()), constraints);
+        programLabel = new JLabel();
+        programLabel.setVerticalAlignment(SwingConstants.TOP);
 
-            constraints.gridx = 1;
-            ImageIcon logo = LogoProvider.getLogo(channel.getLogoUrl(), LOGO_WIDTH, LOGO_HEIGHT);
-            if (logo != null) {
-                add(new JLabel(logo), constraints);
+        channelList.addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                Channel selectedChannel = channelList.getSelectedValue();
+                if (selectedChannel != null) {
+                    Program currentProgram = getCurrentProgram(selectedChannel.getPrograms());
+                    if (currentProgram != null) {
+                        programLabel.setText("<html><h2>" + selectedChannel.getName() + "</h2><br>" + currentProgram.getName() + "</html>");
+                    } else {
+                        programLabel.setText("<html><h2>" + selectedChannel.getName() + "</h2><br>Brak aktualnego programu</html>");
+                    }
+                    programLabel.repaint();
+                }
             }
+        });
 
-            constraints.gridx = 2;
-            Program currentProgram = getCurrentProgram(channel.getPrograms());
-            if (currentProgram != null) {
-                add(new JLabel(currentProgram.getName()), constraints);
-            }
-        }
+        JScrollPane channelListScrollPane = new JScrollPane(channelList);
+        JScrollPane programScrollPane = new JScrollPane(programLabel);
+
+        add(channelListScrollPane, BorderLayout.WEST);
+        add(programScrollPane, BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
+    }
+
+    private class ChannelListRenderer extends JLabel implements ListCellRenderer<Channel> {
+        @Override
+        public Component getListCellRendererComponent(JList<? extends Channel> list, Channel channel, int index, boolean isSelected, boolean cellHasFocus) {
+            String text = channel.getName();
+            ImageIcon logo = LogoProvider.getLogo(channel.getLogoUrl(), LOGO_WIDTH, LOGO_HEIGHT);
+            if (logo != null) {
+                setIcon(logo);
+            } else {
+                setIcon(null);
+            }
+            setText(text);
+
+            if (isSelected) {
+                setBackground(list.getSelectionBackground());
+                setForeground(list.getSelectionForeground());
+            } else {
+                setBackground(list.getBackground());
+                setForeground(list.getForeground());
+            }
+
+            setEnabled(list.isEnabled());
+            setFont(list.getFont());
+            setOpaque(true);
+
+            return this;
+        }
     }
 
     private Program getCurrentProgram(List<Program> programs) {

@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c103fadf-de7e-45f8-b549-483ff4287ca4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/channels.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/events.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tvprogram/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tvprogram/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tvprogram/utils/LogoProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tvprogram/utils/LogoProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tvprogram/view/ChannelListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tvprogram/view/ChannelListView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682662794954</updated>
-      <workItem from="1682662797937" duration="6520000" />
+      <workItem from="1682662797937" duration="10784000" />
     </task>
     <servers />
   </component>
