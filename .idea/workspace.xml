@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c103fadf-de7e-45f8-b549-483ff4287ca4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/META-INF/manifest.mf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channels.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/channels.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/events.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tvprogram/utils/JsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tvprogram/utils/JsonParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +69,9 @@
       <option name="presentableId" value="Default" />
       <updated>1682662794954</updated>
       <workItem from="1682662797937" duration="21119000" />
-      <workItem from="1682693300756" duration="1019000" />
+      <workItem from="1682693300756" duration="1399000" />
+      <workItem from="1682702608493" duration="31000" />
+      <workItem from="1682758286295" duration="807000" />
     </task>
     <servers />
   </component>
